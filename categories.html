@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly Streamer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script defer src="assets/js/main.js"></script>
+  </head>
+  <body data-page="categories">
+    <div class="app-shell">
+      <nav class="side-nav">
+        <div class="nav-head">
+          <div class="nav-logo">
+            <a href="index.html">
+              <img src="assets/images/logoimg.webp" alt="Stackly Streamer logo" />
+              <span class="logo-text">Stackly Streamer</span>
+            </a>
+          </div>
+          <div class="nav-controls mobile-only">
+            <a class="pill" href="index.html">Home</a>
+            <button class="menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">
+              <span class="material-symbols-rounded">menu</span>
+            </button>
+          </div>
+        </div>
+        <ul class="nav-links">
+          <li class="search-link">
+            <a data-nav="search" href="search.html">
+              <span class="icon material-symbols-rounded">search</span>
+              <span class="nav-label">Search</span>
+            </a>
+          </li>
+          <li class="home-link">
+            <a data-nav="home1" href="index.html">
+              <span class="icon material-symbols-rounded">home</span>
+              <span class="nav-label">Home One</span>
+            </a>
+          </li>
+          <li>
+            <a data-nav="home2" href="home2.html">
+              <span class="icon material-symbols-rounded">view_cozy</span>
+              <span class="nav-label">Home Two</span>
+            </a>
+          </li>
+          <li>
+            <a data-nav="movies" href="movies.html">
+              <span class="icon material-symbols-rounded">movie</span>
+              <span class="nav-label">Movies</span>
+            </a>
+          </li>
+          <li>
+            <a data-nav="shows" href="shows.html">
+              <span class="icon material-symbols-rounded">live_tv</span>
+              <span class="nav-label">Shows</span>
+            </a>
+          </li>
+          <li>
+            <a data-nav="sports" href="sports.html">
+              <span class="icon material-symbols-rounded">stadium</span>
+              <span class="nav-label">Sports</span>
+            </a>
+          </li>
+          <li>
+            <a data-nav="kids" href="kids.html">
+              <span class="icon material-symbols-rounded">toys</span>
+              <span class="nav-label">Kids</span>
+            </a>
+          </li>
+          <li>
+            <a data-nav="categories" href="categories.html">
+              <span class="icon material-symbols-rounded">apps</span>
+              <span class="nav-label">Categories</span>
+            </a>
+          </li>
+          <li class="my-spaces-pill">
+            <a data-nav="spaces" href="my-spaces.html">
+              <span class="icon material-symbols-rounded">bookmark_added</span>
+              <span class="nav-label">My Spaces</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <main class="content">
+        <header class="hero">
+          <video src="https://cdn.coverr.co/videos/coverr-searching-through-the-movies-9776/1080p.mp4" autoplay muted loop playsinline></video>
+          <div class="hero-details">
+            <span class="page-tag">categories</span>
+            <h1>Stacks & Categories</h1>
+            <p>Build rails like Netflix profiles and Hotstar tabs combined. Mix moods, languages, and events to keep your Stackly home fresh.</p>
+            <div class="hero-meta">
+              <span><span class="material-symbols-rounded">dashboard_customize</span>18 ready hubs</span>
+              <span><span class="material-symbols-rounded">bolt</span>Instant refresh</span>
+              <span><span class="material-symbols-rounded">language</span>8 languages</span>
+            </div>
+            <div class="hero-actions">
+              <a href="404.html" class="btn btn-primary">Save Layout</a>
+            </div>
+          </div>
+        </header>
+
+        <section class="carousel-section">
+          <div class="section-head">
+            <h2 class="section-title">Language Packs</h2>
+            <p>Switch dubbing + subtitles instantly</p>
+          </div>
+          <div class="carousel">
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1502139214982-d0ad755818d8?auto=format&fit=crop&w=600&q=60" alt="Hindi pack" />
+              <div class="card-info">
+                <span class="card-tag">Hindi</span>
+                <strong>Hindi Universe</strong>
+                <span>Thrillers + dramas</span>
+                <a href="404.html" class="btn btn-secondary">Open Pack</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=600&q=60" alt="Tamil pack" />
+              <div class="card-info">
+                <span class="card-tag">Tamil</span>
+                <strong>Tamil Prime</strong>
+                <span>Mega blockbusters</span>
+                <a href="404.html" class="btn btn-secondary">Open Pack</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=60" alt="Telugu pack" />
+              <div class="card-info">
+                <span class="card-tag">Telugu</span>
+                <strong>Telugu Orbit</strong>
+                <span>Fresh premieres</span>
+                <a href="404.html" class="btn btn-secondary">Open Pack</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1451188502541-13943edb6acb?auto=format&fit=crop&w=600&q=60" alt="Malayalam pack" />
+              <div class="card-info">
+                <span class="card-tag">Malayalam</span>
+                <strong>Kerala Stories</strong>
+                <span>Indie gems</span>
+                <a href="404.html" class="btn btn-secondary">Open Pack</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1495231916356-a86217efff12?auto=format&fit=crop&w=600&q=60" alt="Kids languages" />
+              <div class="card-info">
+                <span class="card-tag">Kids+</span>
+                <strong>Kids Bubble</strong>
+                <span>Hindi + English safe dubs</span>
+                <a href="404.html" class="btn btn-secondary">Open Pack</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="carousel-section">
+          <div class="section-head">
+            <h2 class="section-title">TV Show Shelves</h2>
+            <p>Slotted rails ready for your homescreen</p>
+          </div>
+          <div class="carousel">
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1502139214982-d0ad755818d8?auto=format&fit=crop&w=600&q=60" alt="Drama shelf" />
+              <div class="card-info">
+                <span class="card-tag">Drama</span>
+                <strong>Gripping Dramas</strong>
+                <span>Orbit Lounge + Mirage XI</span>
+                <a href="404.html" class="btn btn-secondary">Pin Shelf</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=60" alt="Comedy shelf" />
+              <div class="card-info">
+                <span class="card-tag">Comedy</span>
+                <strong>Laugh Riot</strong>
+                <span>Binary Hearts + Laugh Blocks</span>
+                <a href="404.html" class="btn btn-secondary">Pin Shelf</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1501426026826-31c667bdf23d?auto=format&fit=crop&w=600&q=60" alt="Thriller shelf" />
+              <div class="card-info">
+                <span class="card-tag">Thriller</span>
+                <strong>Noir Nights</strong>
+                <span>Edge City + Game Night Live</span>
+                <a href="404.html" class="btn btn-secondary">Pin Shelf</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=600&q=60" alt="Reality shelf" />
+              <div class="card-info">
+                <span class="card-tag">Reality</span>
+                <strong>Vote + Chat</strong>
+                <span>Chef Hunt + Talent Grid</span>
+                <a href="404.html" class="btn btn-secondary">Pin Shelf</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=600&q=60" alt="Docu shelf" />
+              <div class="card-info">
+                <span class="card-tag">Docu</span>
+                <strong>True Stories</strong>
+                <span>Chai Stories + Mirage Diaries</span>
+                <a href="404.html" class="btn btn-secondary">Pin Shelf</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="carousel-section">
+          <div class="section-head">
+            <h2 class="section-title">Kids Worlds</h2>
+            <p>Safe hubs for every age bracket</p>
+          </div>
+          <div class="carousel">
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1495231916356-a86217efff12?auto=format&fit=crop&w=600&q=60" alt="Pixel Cubs shelf" />
+              <div class="card-info">
+                <span class="card-tag">STEM</span>
+                <strong>Pixel Cubs Hub</strong>
+                <span>STEM shows + movie</span>
+                <a href="404.html" class="btn btn-secondary">Add Hub</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1485875437342-9b39470b3d95?auto=format&fit=crop&w=600&q=60" alt="Rainbow Riders" />
+              <div class="card-info">
+                <span class="card-tag">Music</span>
+                <strong>Rainbow Riders Hub</strong>
+                <span>Sing-alongs + concerts</span>
+                <a href="404.html" class="btn btn-secondary">Add Hub</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1501426026826-31c667bdf23d?auto=format&fit=crop&w=600&q=60" alt="Space Scouts" />
+              <div class="card-info">
+                <span class="card-tag">Space</span>
+                <strong>Space Scouts</strong>
+                <span>Missions + bedtime tales</span>
+                <a href="404.html" class="btn btn-secondary">Add Hub</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1451188502541-13943edb6acb?auto=format&fit=crop&w=600&q=60" alt="Mini Chefs" />
+              <div class="card-info">
+                <span class="card-tag">Cooking</span>
+                <strong>Mini Chefs</strong>
+                <span>Shows + specials</span>
+                <a href="404.html" class="btn btn-secondary">Add Hub</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=60" alt="Dream Wave" />
+              <div class="card-info">
+                <span class="card-tag">Bedtime</span>
+                <strong>Dream Wave</strong>
+                <span>Sleep playlists</span>
+                <a href="404.html" class="btn btn-secondary">Add Hub</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="carousel-section">
+          <div class="section-head">
+            <h2 class="section-title">Sports Arenas</h2>
+            <p>Stackly Sports presets for match days</p>
+          </div>
+          <div class="carousel">
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=60" alt="Cricket fever" />
+              <div class="card-info">
+                <span class="card-tag">Cricket</span>
+                <strong>Cricket Fever</strong>
+                <span>Live + docu + talk</span>
+                <a href="404.html" class="btn btn-secondary">Activate</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=600&q=60" alt="Football hub" />
+              <div class="card-info">
+                <span class="card-tag">Football</span>
+                <strong>Goal Rush</strong>
+                <span>Live fixtures + fan cams</span>
+                <a href="404.html" class="btn btn-secondary">Activate</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1471295253337-3ceaaedca402?auto=format&fit=crop&w=600&q=60" alt="Formula hub" />
+              <div class="card-info">
+                <span class="card-tag">Formula</span>
+                <strong>Flux Garage</strong>
+                <span>Multi-cam + telemetry</span>
+                <a href="404.html" class="btn btn-secondary">Activate</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=600&q=60" alt="Basketball hub" />
+              <div class="card-info">
+                <span class="card-tag">Hoops</span>
+                <strong>Hoops Central</strong>
+                <span>League Pass + analysis</span>
+                <a href="404.html" class="btn btn-secondary">Activate</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=600&q=60" alt="Esports hub" />
+              <div class="card-info">
+                <span class="card-tag">Esports</span>
+                <strong>Valor Arena</strong>
+                <span>Live finals + VOD</span>
+                <a href="404.html" class="btn btn-secondary">Activate</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="carousel-section">
+          <div class="section-head">
+            <h2 class="section-title">Movie Collections</h2>
+            <p>Stacks ready for marathons</p>
+          </div>
+          <div class="carousel">
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1502139214982-d0ad755818d8?auto=format&fit=crop&w=600&q=60" alt="Bollywood nights" />
+              <div class="card-info">
+                <span class="card-tag">Hindi</span>
+                <strong>Bollywood Nights</strong>
+                <span>Romance + drama</span>
+                <a href="404.html" class="btn btn-secondary">Apply Stack</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=600&q=60" alt="Hollywood rush" />
+              <div class="card-info">
+                <span class="card-tag">Hollywood</span>
+                <strong>Hollywood Rush</strong>
+                <span>Action + sci-fi</span>
+                <a href="404.html" class="btn btn-secondary">Apply Stack</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&w=600&q=60" alt="Tamil pride" />
+              <div class="card-info">
+                <span class="card-tag">Tamil</span>
+                <strong>Tamil Pride</strong>
+                <span>Mass entertainers</span>
+                <a href="404.html" class="btn btn-secondary">Apply Stack</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=60" alt="Sci-Fi pulse" />
+              <div class="card-info">
+                <span class="card-tag">Sci-Fi</span>
+                <strong>Sci-Fi Pulse</strong>
+                <span>Neon Meridian + Quantum Lane</span>
+                <a href="404.html" class="btn btn-secondary">Apply Stack</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1451188502541-13943edb6acb?auto=format&fit=crop&w=600&q=60" alt="Drama wave" />
+              <div class="card-info">
+                <span class="card-tag">Drama</span>
+                <strong>Drama Wave</strong>
+                <span>Chai Stories + Velvet Riot</span>
+                <a href="404.html" class="btn btn-secondary">Apply Stack</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+
+        <footer>
+          <div class="footer-grid">
+            <div class="footer-column">
+              <h4>Stackly Streamer</h4>
+              <p>Limitless marathons. Lightning sports. Studios built for superfans.</p>
+            </div>
+            <div class="footer-column">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Contact Us</h4>
+              <ul>
+                <li><a href="mailto:support@stackly.tv">support@stackly.tv</a></li>
+                <li><a href="tel:+18001234567">+1 800 123 4567</a></li>
+                <li><a href="https://maps.app.goo.gl/stackly">Visit our studio</a></li>
+                <li><a href="services.html">Partner with us</a></li>
+                <li><a href="blog.html">Press &amp; updates</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Follow Us</h4>
+              <div class="social-icons">
+                <a href="404.html" aria-label="Instagram">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="2" />
+                    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2" />
+                    <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+                  </svg>
+                </a>
+                <a href="404.html" aria-label="YouTube">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="2" y="6" width="20" height="12" rx="4" stroke="currentColor" stroke-width="2" />
+                    <path d="M11 9l4 3-4 3V9z" fill="currentColor" />
+                  </svg>
+                </a>
+                <a href="404.html" aria-label="Twitter">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6.5c-.6.3-1.2.4-1.9.5a3.3 3.3 0 00-5.6 3v.6a9.4 9.4 0 01-6.9-3.5s-3 6.7 3.7 9.6c0 0-2.4 1.4-4.3.7 0 0 1.1 3 6 3 6.7 0 9.8-5.5 9.5-10.4.7-.5 1.3-1.1 1.5-1.9-.6.4-1.3.6-2 .7.7-.4 1.2-1 1.5-1.7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <form data-email-form>
+              <input type="email" placeholder="Email for updates" required />
+              <button type="submit">Notify me</button>
+            </form>
+            <p class="footer-note">© <span data-year></span> Stackly Streamer. Built for marathoners.</p>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <div class="overlay-menu">
+      <header>
+        <a href="index.html" class="nav-logo">
+          <img src="assets/images/stackly-logo.svg" alt="" />
+          <span>Stackly Streamer</span>
+        </a>
+        <button data-menu-close aria-label="Close menu">
+          <span class="material-symbols-rounded">close</span>
+        </button>
+      </header>
+      <ul>
+        <li><a data-nav="search" href="search.html">Search</a></li>
+        <li><a data-nav="home1" href="index.html">Home One</a></li>
+        <li><a data-nav="home2" href="home2.html">Home Two</a></li>
+        <li><a data-nav="movies" href="movies.html">Movies</a></li>
+        <li><a data-nav="shows" href="shows.html">Shows</a></li>
+        <li><a data-nav="sports" href="sports.html">Sports</a></li>
+        <li><a data-nav="kids" href="kids.html">Kids</a></li>
+        <li><a data-nav="categories" href="categories.html">Categories</a></li>
+        <li><a data-nav="spaces" href="my-spaces.html">My Spaces</a></li>
+      </ul>
+    </div>
+
+    <div class="toast" role="status" aria-live="polite">
+      <span class="material-symbols-rounded">check_circle</span>
+      <span>We saved your spot!</span>
+    </div>
+  </body>
+</html>
+

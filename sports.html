@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly Streamer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script defer src="assets/js/main.js"></script>
+  </head>
+  <body data-page="sports">
+    <div class="app-shell">
+      <nav class="side-nav">
+        <div class="nav-head">
+          <div class="nav-logo">
+            <a href="index.html">
+              <img src="assets/images/logoimg.webp" alt="Stackly Streamer logo" />
+              <span class="logo-text">Stackly Streamer</span>
+            </a>
+          </div>
+          <div class="nav-controls mobile-only">
+            <a class="pill" href="index.html">Home</a>
+            <button class="menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">
+              <span class="material-symbols-rounded">menu</span>
+            </button>
+          </div>
+        </div>
+        <ul class="nav-links">
+          <li class="search-link">
+            <a data-nav="search" href="search.html">
+              <span class="icon material-symbols-rounded">search</span>
+              <span class="nav-label">Search</span>
+            </a>
+          </li>
+          <li class="home-link">
+            <a data-nav="home1" href="index.html">
+              <span class="icon material-symbols-rounded">home</span>
+              <span class="nav-label">Home One</span>
+            </a>
+          </li>
+          <li>
+            <a data-nav="home2" href="home2.html">
+              <span class="icon material-symbols-rounded">view_cozy</span>
+              <span class="nav-label">Home Two</span>
+            </a>
+          </li>
+          <li>
+            <a data-nav="movies" href="movies.html">
+              <span class="icon material-symbols-rounded">movie</span>
+              <span class="nav-label">Movies</span>
+            </a>
+          </li>
+          <li>
+            <a data-nav="shows" href="shows.html">
+              <span class="icon material-symbols-rounded">live_tv</span>
+              <span class="nav-label">Shows</span>
+            </a>
+          </li>
+          <li>
+            <a data-nav="sports" href="sports.html">
+              <span class="icon material-symbols-rounded">stadium</span>
+              <span class="nav-label">Sports</span>
+            </a>
+          </li>
+          <li>
+            <a data-nav="kids" href="kids.html">
+              <span class="icon material-symbols-rounded">toys</span>
+              <span class="nav-label">Kids</span>
+            </a>
+          </li>
+          <li>
+            <a data-nav="categories" href="categories.html">
+              <span class="icon material-symbols-rounded">apps</span>
+              <span class="nav-label">Categories</span>
+            </a>
+          </li>
+          <li class="my-spaces-pill">
+            <a data-nav="spaces" href="my-spaces.html">
+              <span class="icon material-symbols-rounded">bookmark_added</span>
+              <span class="nav-label">My Spaces</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <main class="content">
+        <header class="hero">
+          <video src="https://cdn.coverr.co/videos/coverr-a-soccer-stadium-9928/1080p.mp4" autoplay muted loop playsinline></video>
+          <div class="hero-details">
+            <span class="page-tag">sports</span>
+            <h1>Hyper Sports Hub</h1>
+            <p>Stackly Sports taps Hotstar-grade live latency with Amazon Prime’s stats overlays. Multi-cam, languages, and instant replays in one dock.</p>
+            <div class="hero-meta">
+              <span><span class="material-symbols-rounded">stadium</span>12 live fixtures</span>
+              <span><span class="material-symbols-rounded">graphic_eq</span>Dolby Atmos crowd</span>
+              <span><span class="material-symbols-rounded">schedule</span>10 sec delay</span>
+            </div>
+            <div class="hero-actions">
+              <a href="404.html" class="btn btn-primary">Watch Live</a>
+            </div>
+          </div>
+        </header>
+
+        <section class="carousel-section">
+          <div class="section-head">
+            <h2 class="section-title">Live Matches</h2>
+            <p>Select a feed to enter multi-view</p>
+          </div>
+          <div class="carousel">
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=60" alt="Legends League" />
+              <div class="card-info">
+                <span class="card-tag">Live</span>
+                <strong>Legends League</strong>
+                <span>Cricket • ENG vs IND</span>
+                <a href="404.html" class="btn btn-secondary">Watch Live</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=600&q=60" alt="Super Strikers" />
+              <div class="card-info">
+                <span class="card-tag">Live</span>
+                <strong>Super Strikers</strong>
+                <span>Football semi-final</span>
+                <a href="404.html" class="btn btn-secondary">Watch Live</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=600&q=60" alt="Hoops League" />
+              <div class="card-info">
+                <span class="card-tag">Live</span>
+                <strong>Hoops League</strong>
+                <span>Game 3 double-OT</span>
+                <a href="404.html" class="btn btn-secondary">Watch Live</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1471295253337-3ceaaedca402?auto=format&fit=crop&w=600&q=60" alt="Formula Flux" />
+              <div class="card-info">
+                <span class="card-tag">Multi-cam</span>
+                <strong>Formula Flux</strong>
+                <span>Tokyo replay in 4K</span>
+                <a href="404.html" class="btn btn-secondary">Watch Live</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=600&q=60" alt="Valor Cup" />
+              <div class="card-info">
+                <span class="card-tag">Live</span>
+                <strong>Valor Cup</strong>
+                <span>Esports • Finals</span>
+                <a href="404.html" class="btn btn-secondary">Watch Live</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="carousel-section">
+          <div class="section-head">
+            <h2 class="section-title">Top 10 Highlights</h2>
+            <p>Clips trending across India</p>
+          </div>
+          <div class="carousel">
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=600&q=60" alt="Sky Dunk" />
+              <div class="card-info">
+                <span class="card-tag">#1</span>
+                <strong>Sky Dunk 360</strong>
+                <span>Hoops League</span>
+                <a href="404.html" class="btn btn-secondary">Watch Clip</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=600&q=60" alt="45m Six" />
+              <div class="card-info">
+                <span class="card-tag">#2</span>
+                <strong>45m Six</strong>
+                <span>Legends League</span>
+                <a href="404.html" class="btn btn-secondary">Watch Clip</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=600&q=60" alt="Final Minute Goal" />
+              <div class="card-info">
+                <span class="card-tag">#3</span>
+                <strong>Final Minute Goal</strong>
+                <span>Super Strikers</span>
+                <a href="404.html" class="btn btn-secondary">Watch Clip</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1471295253337-3ceaaedca402?auto=format&fit=crop&w=600&q=60" alt="Flux Pitstop" />
+              <div class="card-info">
+                <span class="card-tag">#4</span>
+                <strong>Flux Pitstop</strong>
+                <span>Formula Flux</span>
+                <a href="404.html" class="btn btn-secondary">Watch Clip</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=600&q=60" alt="Esports Ace" />
+              <div class="card-info">
+                <span class="card-tag">#5</span>
+                <strong>Esports Ace</strong>
+                <span>Valor Cup</span>
+                <a href="404.html" class="btn btn-secondary">Watch Clip</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="carousel-section">
+          <div class="section-head">
+            <h2 class="section-title">Cricket Hub</h2>
+            <p>Multi-language, multi-cam cricket</p>
+          </div>
+          <div class="carousel">
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=60" alt="Test 3" />
+              <div class="card-info">
+                <span class="card-tag">Upcoming</span>
+                <strong>IND vs AUS • Test 3</strong>
+                <span>Starts Friday 9:30 AM</span>
+                <a href="404.html" class="btn btn-secondary">Set Reminder</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=600&q=60" alt="Legends League" />
+              <div class="card-info">
+                <span class="card-tag">Live</span>
+                <strong>Legends League</strong>
+                <span>Hindi + English feed</span>
+                <a href="404.html" class="btn btn-secondary">Watch Live</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&w=600&q=60" alt="Domestic Cup" />
+              <div class="card-info">
+                <span class="card-tag">Highlights</span>
+                <strong>Domestic Cup</strong>
+                <span>Best moments</span>
+                <a href="404.html" class="btn btn-secondary">Watch Now</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=60" alt="Docu" />
+              <div class="card-info">
+                <span class="card-tag">Docu</span>
+                <strong>Final Over</strong>
+                <span>Legacy stories</span>
+                <a href="404.html" class="btn btn-secondary">Watch Now</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1471295253337-3ceaaedca402?auto=format&fit=crop&w=600&q=60" alt="Coach Cam" />
+              <div class="card-info">
+                <span class="card-tag">Extra</span>
+                <strong>Coach Cam</strong>
+                <span>Strategy room</span>
+                <a href="404.html" class="btn btn-secondary">Watch Now</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="carousel-section">
+          <div class="section-head">
+            <h2 class="section-title">Football Universe</h2>
+            <p>International and club football</p>
+          </div>
+          <div class="carousel">
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=600&q=60" alt="Derby Night" />
+              <div class="card-info">
+                <span class="card-tag">Upcoming</span>
+                <strong>Derby Night</strong>
+                <span>Strikers vs Royals</span>
+                <a href="404.html" class="btn btn-secondary">Set Reminder</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1501426026826-31c667bdf23d?auto=format&fit=crop&w=600&q=60" alt="Game Night Live" />
+              <div class="card-info">
+                <span class="card-tag">Live chat</span>
+                <strong>Game Night Live</strong>
+                <span>Analysis stream</span>
+                <a href="404.html" class="btn btn-secondary">Join Now</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=600&q=60" alt="Fan Stories" />
+              <div class="card-info">
+                <span class="card-tag">Docu</span>
+                <strong>Fan Stories</strong>
+                <span>Behind the chants</span>
+                <a href="404.html" class="btn btn-secondary">Watch Now</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1505685296765-3a2736de412f?auto=format&fit=crop&w=600&q=60" alt="Captain's Table" />
+              <div class="card-info">
+                <span class="card-tag">Show</span>
+                <strong>Captain's Table</strong>
+                <span>Legends roundtable</span>
+                <a href="404.html" class="btn btn-secondary">Watch Now</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1495231916356-a86217efff12?auto=format&fit=crop&w=600&q=60" alt="Tactics Board" />
+              <div class="card-info">
+                <span class="card-tag">Analysis</span>
+                <strong>Tactics Board</strong>
+                <span>Breakdowns</span>
+                <a href="404.html" class="btn btn-secondary">Watch Now</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="carousel-section">
+          <div class="section-head">
+            <h2 class="section-title">Formula & Motorsports</h2>
+            <p>Speed, telemetry, team radio</p>
+          </div>
+          <div class="carousel">
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1471295253337-3ceaaedca402?auto=format&fit=crop&w=600&q=60" alt="Formula Flux" />
+              <div class="card-info">
+                <span class="card-tag">Replay</span>
+                <strong>Formula Flux • Tokyo</strong>
+                <span>Night race 360° cam</span>
+                <a href="404.html" class="btn btn-secondary">Watch Now</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&w=600&q=60" alt="Pitstop Lab" />
+              <div class="card-info">
+                <span class="card-tag">Docu</span>
+                <strong>Pitstop Lab</strong>
+                <span>Behind the crew</span>
+                <a href="404.html" class="btn btn-secondary">Watch Now</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=60" alt="Gridwalk" />
+              <div class="card-info">
+                <span class="card-tag">Show</span>
+                <strong>Gridwalk Live</strong>
+                <span>Driver interviews</span>
+                <a href="404.html" class="btn btn-secondary">Watch Now</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=600&q=60" alt="Telemetry" />
+              <div class="card-info">
+                <span class="card-tag">Data</span>
+                <strong>Telemetry Room</strong>
+                <span>Stats overlay</span>
+                <a href="404.html" class="btn btn-secondary">Watch Now</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=600&q=60" alt="Rivalry" />
+              <div class="card-info">
+                <span class="card-tag">Series</span>
+                <strong>Rivalry Lines</strong>
+                <span>Team drama</span>
+                <a href="404.html" class="btn btn-secondary">Watch Now</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="carousel-section">
+          <div class="section-head">
+            <h2 class="section-title">Basketball Central</h2>
+            <p>League Pass, highlights, docu</p>
+          </div>
+          <div class="carousel">
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=600&q=60" alt="Hoops League" />
+              <div class="card-info">
+                <span class="card-tag">Live</span>
+                <strong>Hoops League</strong>
+                <span>Game 3 double-OT</span>
+                <a href="404.html" class="btn btn-secondary">Watch Live</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=60" alt="Rookie Watch" />
+              <div class="card-info">
+                <span class="card-tag">Show</span>
+                <strong>Rookie Watch</strong>
+                <span>Draft class deep dive</span>
+                <a href="404.html" class="btn btn-secondary">Watch Now</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=600&q=60" alt="Street Legends" />
+              <div class="card-info">
+                <span class="card-tag">Docu</span>
+                <strong>Street Legends</strong>
+                <span>Hoop dreams</span>
+                <a href="404.html" class="btn btn-secondary">Watch Now</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1501426026826-31c667bdf23d?auto=format&fit=crop&w=600&q=60" alt="Coach's Board" />
+              <div class="card-info">
+                <span class="card-tag">Analysis</span>
+                <strong>Coach's Board</strong>
+                <span>Play breakdowns</span>
+                <a href="404.html" class="btn btn-secondary">Watch Now</a>
+              </div>
+            </article>
+            <article class="carousel-card">
+              <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=600&q=60" alt="Legends Archive" />
+              <div class="card-info">
+                <span class="card-tag">Archive</span>
+                <strong>Legends Archive</strong>
+                <span>Classic games</span>
+                <a href="404.html" class="btn btn-secondary">Watch Now</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <footer>
+          <div class="footer-grid">
+            <div class="footer-column">
+              <h4>Stackly Streamer</h4>
+              <p>Limitless marathons. Lightning sports. Studios built for superfans.</p>
+            </div>
+            <div class="footer-column">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Contact Us</h4>
+              <ul>
+                <li><a href="mailto:support@stackly.tv">support@stackly.tv</a></li>
+                <li><a href="tel:+18001234567">+1 800 123 4567</a></li>
+                <li><a href="https://maps.app.goo.gl/stackly">Visit our studio</a></li>
+                <li><a href="services.html">Partner with us</a></li>
+                <li><a href="blog.html">Press &amp; updates</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Follow Us</h4>
+              <div class="social-icons">
+                <a href="404.html" aria-label="Instagram">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="2" />
+                    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2" />
+                    <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+                  </svg>
+                </a>
+                <a href="404.html" aria-label="YouTube">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="2" y="6" width="20" height="12" rx="4" stroke="currentColor" stroke-width="2" />
+                    <path d="M11 9l4 3-4 3V9z" fill="currentColor" />
+                  </svg>
+                </a>
+                <a href="404.html" aria-label="Twitter">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6.5c-.6.3-1.2.4-1.9.5a3.3 3.3 0 00-5.6 3v.6a9.4 9.4 0 01-6.9-3.5s-3 6.7 3.7 9.6c0 0-2.4 1.4-4.3.7 0 0 1.1 3 6 3 6.7 0 9.8-5.5 9.5-10.4.7-.5 1.3-1.1 1.5-1.9-.6.4-1.3.6-2 .7.7-.4 1.2-1 1.5-1.7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <form data-email-form>
+              <input type="email" placeholder="Email for updates" required />
+              <button type="submit">Notify me</button>
+            </form>
+            <p class="footer-note">© <span data-year></span> Stackly Streamer. Built for marathoners.</p>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <div class="overlay-menu">
+      <header>
+        <a href="index.html" class="nav-logo">
+          <img src="assets/images/stackly-logo.svg" alt="" />
+          <span>Stackly Streamer</span>
+        </a>
+        <button data-menu-close aria-label="Close menu">
+          <span class="material-symbols-rounded">close</span>
+        </button>
+      </header>
+      <ul>
+        <li><a data-nav="search" href="search.html">Search</a></li>
+        <li><a data-nav="home1" href="index.html">Home One</a></li>
+        <li><a data-nav="home2" href="home2.html">Home Two</a></li>
+        <li><a data-nav="movies" href="movies.html">Movies</a></li>
+        <li><a data-nav="shows" href="shows.html">Shows</a></li>
+        <li><a data-nav="sports" href="sports.html">Sports</a></li>
+        <li><a data-nav="kids" href="kids.html">Kids</a></li>
+        <li><a data-nav="categories" href="categories.html">Categories</a></li>
+        <li><a data-nav="spaces" href="my-spaces.html">My Spaces</a></li>
+      </ul>
+    </div>
+
+    <div class="toast" role="status" aria-live="polite">
+      <span class="material-symbols-rounded">check_circle</span>
+      <span>We saved your spot!</span>
+    </div>
+  </body>
+</html>
+

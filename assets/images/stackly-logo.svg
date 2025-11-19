@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title>Stackly Streamer Logo</title>
+  <defs>
+    <linearGradient id="stacklyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b9fff"/>
+      <stop offset="50%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#050505"/>
+  <path d="M32 38h64v12H32z" fill="url(#stacklyGradient)" opacity="0.9"/>
+  <path d="M32 58h52v12H32z" fill="url(#stacklyGradient)" opacity="0.7"/>
+  <path d="M32 78h40v12H32z" fill="url(#stacklyGradient)" opacity="0.5"/>
+  <circle cx="92" cy="84" r="12" fill="url(#stacklyGradient)"/>
+</svg>
+
