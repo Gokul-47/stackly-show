@@ -371,6 +371,20 @@ nav.side-nav:hover .nav-links a .nav-label {
   object-fit: cover;
 }
 
+/* extra */
+.carousel.dragging {
+  scroll-behavior: auto !important; /* Disable snap while dragging */
+  cursor: grabbing;
+}
+
+.carousel {
+  cursor: grab;
+  scroll-behavior: smooth; /* keeps snap clean */
+}
+
+/* end extra */
+
+
 .card-info {
   padding: 1rem;
   display: flex;
@@ -1586,6 +1600,9 @@ footer {
   .card--wide .tagline {
     font-size: 0.9rem;
   }
+  .btn{
+    font-size: 0.7rem;
+  }
 }
 
 @media (max-width: 320px) {
@@ -1645,6 +1662,10 @@ footer {
 
   .card--wide img {
     height: 120px;
+  }
+  .btn{
+    font-size: 0.5rem;
+    padding: 10px 10px;
   }
 }
 
