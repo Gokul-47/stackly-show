@@ -505,4 +505,58 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+/* Carousel navigation arrows - auto-wrap carousels and add navigation */
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.carousel-section').forEach((section) => {
+    const carousel = section.querySelector('.carousel');
+    if (!carousel) return;
+
+    // Check if already wrapped
+    if (carousel.parentElement.classList.contains('carousel-wrapper')) return;
+
+    // Create wrapper if not already present
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('carousel-wrapper');
+
+    // Create prev button
+    const prevBtn = document.createElement('button');
+    prevBtn.classList.add('carousel-nav', 'carousel-nav-prev');
+    prevBtn.setAttribute('aria-label', 'Previous');
+    prevBtn.innerHTML = '<span class="material-symbols-rounded">arrow_back</span>';
+
+    // Create next button
+    const nextBtn = document.createElement('button');
+    nextBtn.classList.add('carousel-nav', 'carousel-nav-next');
+    nextBtn.setAttribute('aria-label', 'Next');
+    nextBtn.innerHTML = '<span class="material-symbols-rounded">arrow_forward</span>';
+
+    // Insert wrapper and buttons
+    carousel.parentElement.insertBefore(wrapper, carousel);
+    wrapper.appendChild(prevBtn);
+    wrapper.appendChild(carousel);
+    wrapper.appendChild(nextBtn);
+  });
+});
+
+/* Carousel navigation arrow click handler */
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.carousel-nav');
+  if (!btn) return;
+
+  const isNext = btn.classList.contains('carousel-nav-next');
+  const wrapper = btn.closest('.carousel-wrapper');
+  const carousel = wrapper.querySelector('.carousel');
+
+  if (carousel) {
+    const cardWidth = carousel.querySelector('.carousel-card')?.offsetWidth || 260;
+    const scrollAmount = cardWidth + 16; // card width + gap
+    carousel.scrollBy({
+      left: isNext ? scrollAmount : -scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+});
+
+
+
 
