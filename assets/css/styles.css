@@ -185,8 +185,8 @@ nav.side-nav:hover .nav-links a .nav-label {
 .nav-links li.my-spaces-pill {
   margin-top: auto;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding-top: 1rem;
-  margin-bottom: 1rem; /* add breathing room so item isn't cropped */
+  padding-top: 0.5rem;
+  margin-bottom: 4rem; /* add breathing room so item isn't cropped */
 
 }
 
@@ -327,7 +327,8 @@ nav.side-nav:hover .nav-links a .nav-label {
 .section-head {
   display: flex;
   justify-content: space-between;
-    margin-bottom: 1.5rem;
+  margin-top: 3rem; /* add gap between hero and next section */
+  margin-bottom: 1.5rem;
   }
 
 .overlay-menu .nav-logo {
