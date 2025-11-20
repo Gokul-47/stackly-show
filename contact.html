@@ -129,10 +129,10 @@
             <h2 class="section-title">Send a Message</h2>
             <p>We’ll reply within one business day</p>
           </div>
-          <form class="form-shell">
+          <form class="form-shell" id="contact-form">
             <div class="input-field">
               <label for="contact-name">Full Name</label>
-              <input type="text" id="contact-name" placeholder="Stackly Fan" required />
+              <input type="text" id="contact-name" placeholder="Stackly Fan" required pattern="[A-Za-z\s]+" title="Please enter a valid name (letters and spaces only)" />
             </div>
             <div class="input-field">
               <label for="contact-email">Email</label>
@@ -150,9 +150,9 @@
             </div>
             <div class="input-field">
               <label for="contact-message">Message</label>
-              <textarea id="contact-message" rows="4" placeholder="Tell us how we can help" required></textarea>
+              <textarea id="contact-message" rows="4" placeholder="Tell us how we can help" required minlength="10" title="Message must be at least 10 characters long"></textarea>
             </div>
-            <a href="404.html" class="btn btn-primary">Send Message</a>
+             <button type="submit" class="btn btn-primary">Send Message</button>
           </form>
         </section>
 
@@ -178,7 +178,7 @@
               <ul>
                 <li><a href="mailto:support@stackly.tv">support@stackly.tv</a></li>
                 <li><a href="tel:+18001234567">+1 800 123 4567</a></li>
-                <li><a href="#" data-map-toggle aria-label="View location on map">📍 Bangalore, India</a></li>
+                <li><a href="#" data-map-toggle aria-label="View location on map">Bangalore, India</a></li>
                 <li><a href="services.html">Partner with us</a></li>
                 <li><a href="blog.html">Press & updates</a></li>
               </ul>
@@ -260,7 +260,34 @@
       </div>
     </div>
 
-        
+    <script>
+function validateForm() {
+    const name = document.getElementById('contact-name');
+    const email = document.getElementById('contact-email');
+    const message = document.getElementById('contact-message');
+
+    // Regular expression for basic email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!name.checkValidity()) {
+        alert(name.title);
+        name.focus();
+        return;
+    }
+    if (!email.checkValidity() || !emailPattern.test(email.value)) {
+        alert('Please enter a valid email address.');
+        email.focus();
+        return;
+    }
+    if (!message.checkValidity()) {
+        (message.title);
+        message.focus();
+        return;
+    }
+    // If all fields are valid, submit the form
+    document.getElementById('contact-form').submit();
+}
+</script>
   </body>
 </html>
 

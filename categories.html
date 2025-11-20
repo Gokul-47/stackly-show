@@ -390,7 +390,7 @@
               <ul>
                 <li><a href="mailto:support@stackly.tv">support@stackly.tv</a></li>
                 <li><a href="tel:+18001234567">+1 800 123 4567</a></li>
-                <li><a href="#" data-map-toggle aria-label="View location on map">📍 Bangalore, India</a></li>
+                <li><a href="#" data-map-toggle aria-label="View location on map">Bangalore, India</a></li>
                 <li><a href="services.html">Partner with us</a></li>
                 <li><a href="blog.html">Press & updates</a></li>
               </ul>
@@ -471,6 +471,29 @@
         <p class="location-info">📍 Indiranagar, Bangalore, Karnataka 560038, India</p>
       </div>
     </div>
+
+    <script>
+      let currentIndex = 0;
+      const cards = document.querySelectorAll('.carousel-card');
+      const totalCards = cards.length;
+
+      function showNextCard() {
+          currentIndex = (currentIndex + 1) % totalCards;
+          updateCarousel();
+      }
+
+      function showPreviousCard() {
+          currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+          updateCarousel();
+      }
+
+      function updateCarousel() {
+          const offset = -currentIndex * 100;
+          document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
+      }
+
+      setInterval(showNextCard, 3000); // Change card every 3 seconds
+    </script>
   </body>
 </html>
 

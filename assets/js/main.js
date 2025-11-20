@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-/* drag for all carousels with smooth momentum */
+/* drag for all carousels with smooth momentum (pointer-based) */
 document.querySelectorAll(".carousel").forEach((carousel) => {
   let isDown = false;
   let startX = 0;
@@ -197,103 +197,104 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
   let lastX = 0;
   let lastTime = 0;
   let animationId = null;
+  let activePointerId = null;
 
   const applyMomentum = () => {
-    if (Math.abs(velocity) > 0.5) {
-      velocity *= 0.93;
+    if (Math.abs(velocity) > 0.3) {
+      velocity *= 0.95; // gentler damping for smoother mouse feel
+      // clamp velocity to avoid huge jumps
+      velocity = Math.max(Math.min(velocity, 250), -250);
       carousel.scrollLeft -= velocity;
       animationId = requestAnimationFrame(applyMomentum);
+    } else {
+      animationId = null;
+      // restore normal snapping/behavior after momentum stops
+      carousel.classList.remove('dragging');
+      carousel.style.scrollBehavior = '';
     }
   };
 
-  carousel.addEventListener("mousedown", (e) => {
+  const startDrag = (clientX, pointerId) => {
     if (animationId) cancelAnimationFrame(animationId);
+    animationId = null;
     isDown = true;
+    activePointerId = pointerId ?? null;
     carousel.style.cursor = "grabbing";
     carousel.style.scrollBehavior = "auto";
-    startX = e.pageX;
-    lastX = e.pageX;
+    carousel.classList.add('dragging'); // CSS rule disables snap while dragging
+    carousel.style.willChange = "scroll-position";
+    document.body.style.userSelect = "none";
+    startX = clientX;
+    lastX = clientX;
     scrollLeft = carousel.scrollLeft;
     velocity = 0;
     lastTime = Date.now();
+  };
+
+  const endDrag = () => {
+    if (!isDown) return;
+    isDown = false;
+    activePointerId = null;
+    carousel.style.cursor = "grab";
+    carousel.style.willChange = "auto";
+    document.body.style.userSelect = "";
+    if (Math.abs(velocity) > 0.5) {
+      // keep 'dragging' class until momentum finishes so snapping stays disabled
+      applyMomentum();
+    } else {
+      // no momentum — restore snapping immediately
+      carousel.classList.remove('dragging');
+      carousel.style.scrollBehavior = '';
+    }
+  };
+
+  carousel.addEventListener("pointerdown", (e) => {
+    // only respond to primary pointer
+    if (e.isPrimary === false) return;
+    carousel.setPointerCapture(e.pointerId);
+    startDrag(e.clientX, e.pointerId);
     e.preventDefault();
   });
 
-  carousel.addEventListener("mouseleave", () => {
-    if (isDown) {
-      isDown = false;
-      carousel.style.cursor = "grab";
-      if (Math.abs(velocity) > 0.5) {
-        applyMomentum();
-      }
-    }
-  });
-
-  carousel.addEventListener("mouseup", () => {
-    if (isDown) {
-      isDown = false;
-      carousel.style.cursor = "grab";
-      if (Math.abs(velocity) > 0.5) {
-        applyMomentum();
-      }
-    }
-  });
-
-  carousel.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-    
-    const x = e.pageX;
+  carousel.addEventListener("pointermove", (e) => {
+    if (!isDown || (activePointerId !== null && e.pointerId !== activePointerId)) return;
+    const x = e.clientX;
     const now = Date.now();
     const timeDelta = Math.max(now - lastTime, 1);
     const delta = lastX - x;
-    
-    // Direct scroll without acceleration
+
+    // Apply scroll directly — small delta per event reduces jumpiness
     carousel.scrollLeft += delta;
-    
+
     // Calculate velocity for momentum
     velocity = delta * (16 / timeDelta);
-    
+
     lastX = x;
     lastTime = now;
+    e.preventDefault();
+  }, { passive: false });
+
+  carousel.addEventListener("pointerup", (e) => {
+    if (activePointerId !== null) carousel.releasePointerCapture(e.pointerId);
+    endDrag();
   });
 
-  /* touch events */
-  carousel.addEventListener("touchstart", (e) => {
-    if (animationId) cancelAnimationFrame(animationId);
-    isDown = true;
-    startX = e.touches[0].clientX;
-    lastX = e.touches[0].clientX;
-    scrollLeft = carousel.scrollLeft;
-    velocity = 0;
-    lastTime = Date.now();
+  carousel.addEventListener("pointercancel", (e) => {
+    if (activePointerId !== null) carousel.releasePointerCapture(e.pointerId);
+    endDrag();
   });
 
-  carousel.addEventListener("touchend", () => {
-    if (isDown) {
-      isDown = false;
-      if (Math.abs(velocity) > 0.5) {
-        applyMomentum();
-      }
-    }
+  // Fallback for when pointerleave occurs (mouse leaving element)
+  carousel.addEventListener("pointerleave", () => {
+    endDrag();
   });
 
-  carousel.addEventListener("touchmove", (e) => {
-    if (!isDown) return;
-    
-    const x = e.touches[0].clientX;
-    const now = Date.now();
-    const timeDelta = Math.max(now - lastTime, 1);
-    const delta = lastX - x;
-    
-    // Direct scroll without acceleration
-    carousel.scrollLeft += delta;
-    
-    // Calculate velocity for momentum
-    velocity = delta * (16 / timeDelta);
-    
-    lastX = x;
-    lastTime = now;
-  });
+  // Prevent accidental text/image selection while dragging on older browsers
+  carousel.addEventListener("dragstart", (e) => e.preventDefault());
+
+  // Note: wheel-to-horizontal mapping removed to prevent mouse-wheel from
+  // scrolling carousels horizontally. This preserves vertical page scrolling
+  // while allowing pointer drag for horizontal navigation.
 });
 
 /* Map Modal functionality */

@@ -61,7 +61,7 @@ nav.side-nav {
   height: 100vh;
   background: linear-gradient(180deg, rgba(11, 13, 19, 0.98), rgba(4, 5, 10, 0.95));
   border-right: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 1rem 2.5rem; /* extra bottom padding so bottom items aren't cropped */
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -186,11 +186,14 @@ nav.side-nav:hover .nav-links a .nav-label {
   margin-top: auto;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding-top: 1rem;
+  margin-bottom: 1rem; /* add breathing room so item isn't cropped */
+
 }
 
 .nav-links li.my-spaces-pill a {
   background: linear-gradient(120deg, rgba(27, 159, 255, 0.2), rgba(124, 58, 237, 0.2));
   border: 1px solid rgba(27, 159, 255, 0.4);
+
 }
 
 .hero {
@@ -410,6 +413,17 @@ nav.side-nav:hover .nav-links a .nav-label {
 .carousel.dragging {
   scroll-behavior: auto !important; /* Disable snap while dragging */
   cursor: grabbing;
+}
+
+/* While user is actively dragging, disable scroll-snap to avoid
+   conflicting snap calculations and perceived lag. This targets the
+   horizontal rails used across the site. */
+.carousel.dragging,
+.shelf-cards.dragging,
+.shelf.dragging {
+  scroll-snap-type: none !important;
+  -webkit-overflow-scrolling: auto !important;
+  scroll-behavior: auto !important;
 }
 
 .carousel {
