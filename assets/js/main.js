@@ -200,10 +200,10 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
   let activePointerId = null;
 
   const applyMomentum = () => {
-    if (Math.abs(velocity) > 0.3) {
-      velocity *= 0.95; // gentler damping for smoother mouse feel
-      // clamp velocity to avoid huge jumps
-      velocity = Math.max(Math.min(velocity, 250), -250);
+    if (Math.abs(velocity) > 0.1) {
+      velocity *= 0.96; // gentler damping for smoother, longer glide
+      // clamp velocity to allow longer momentum travel without snapping back
+      velocity = Math.max(Math.min(velocity, 500), -500);
       carousel.scrollLeft -= velocity;
       animationId = requestAnimationFrame(applyMomentum);
     } else {
@@ -238,7 +238,7 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
     carousel.style.cursor = "grab";
     carousel.style.willChange = "auto";
     document.body.style.userSelect = "";
-    if (Math.abs(velocity) > 0.5) {
+    if (Math.abs(velocity) > 0.2) {
       // keep 'dragging' class until momentum finishes so snapping stays disabled
       applyMomentum();
     } else {
@@ -251,6 +251,11 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
   carousel.addEventListener("pointerdown", (e) => {
     // only respond to primary pointer
     if (e.isPrimary === false) return;
+
+    // Skip custom drag for touch pointers — let native scrolling handle them.
+    // This prevents glitches on small screens and preserves smooth momentum.
+    if (e.pointerType === 'touch') return;
+
     carousel.setPointerCapture(e.pointerId);
     startDrag(e.clientX, e.pointerId);
     e.preventDefault();

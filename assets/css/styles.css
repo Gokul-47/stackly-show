@@ -376,6 +376,7 @@ nav.side-nav:hover .nav-links a .nav-label {
   display: flex;
   gap: 1rem;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Enable smooth momentum on touch devices (iOS/Android) */
   padding-bottom: 0.75rem;
   scroll-snap-type: x mandatory;
   width: 100%;
