@@ -188,57 +188,315 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-/* drag */
-const carousel = document.querySelector(".carousel");
+/* drag for all carousels with smooth momentum */
+document.querySelectorAll(".carousel").forEach((carousel) => {
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+  let velocity = 0;
+  let lastX = 0;
+  let lastTime = 0;
+  let animationId = null;
 
-let isDown = false;
-let startX;
-let scrollLeft;
+  const applyMomentum = () => {
+    if (Math.abs(velocity) > 0.5) {
+      velocity *= 0.93;
+      carousel.scrollLeft -= velocity;
+      animationId = requestAnimationFrame(applyMomentum);
+    }
+  };
 
-carousel.addEventListener("mousedown", (e) => {
-  isDown = true;
-  carousel.classList.add("dragging");
-  startX = e.pageX - carousel.offsetLeft;
-  scrollLeft = carousel.scrollLeft;
-  e.preventDefault();
+  carousel.addEventListener("mousedown", (e) => {
+    if (animationId) cancelAnimationFrame(animationId);
+    isDown = true;
+    carousel.style.cursor = "grabbing";
+    carousel.style.scrollBehavior = "auto";
+    startX = e.pageX;
+    lastX = e.pageX;
+    scrollLeft = carousel.scrollLeft;
+    velocity = 0;
+    lastTime = Date.now();
+    e.preventDefault();
+  });
+
+  carousel.addEventListener("mouseleave", () => {
+    if (isDown) {
+      isDown = false;
+      carousel.style.cursor = "grab";
+      if (Math.abs(velocity) > 0.5) {
+        applyMomentum();
+      }
+    }
+  });
+
+  carousel.addEventListener("mouseup", () => {
+    if (isDown) {
+      isDown = false;
+      carousel.style.cursor = "grab";
+      if (Math.abs(velocity) > 0.5) {
+        applyMomentum();
+      }
+    }
+  });
+
+  carousel.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    
+    const x = e.pageX;
+    const now = Date.now();
+    const timeDelta = Math.max(now - lastTime, 1);
+    const delta = lastX - x;
+    
+    // Direct scroll without acceleration
+    carousel.scrollLeft += delta;
+    
+    // Calculate velocity for momentum
+    velocity = delta * (16 / timeDelta);
+    
+    lastX = x;
+    lastTime = now;
+  });
+
+  /* touch events */
+  carousel.addEventListener("touchstart", (e) => {
+    if (animationId) cancelAnimationFrame(animationId);
+    isDown = true;
+    startX = e.touches[0].clientX;
+    lastX = e.touches[0].clientX;
+    scrollLeft = carousel.scrollLeft;
+    velocity = 0;
+    lastTime = Date.now();
+  });
+
+  carousel.addEventListener("touchend", () => {
+    if (isDown) {
+      isDown = false;
+      if (Math.abs(velocity) > 0.5) {
+        applyMomentum();
+      }
+    }
+  });
+
+  carousel.addEventListener("touchmove", (e) => {
+    if (!isDown) return;
+    
+    const x = e.touches[0].clientX;
+    const now = Date.now();
+    const timeDelta = Math.max(now - lastTime, 1);
+    const delta = lastX - x;
+    
+    // Direct scroll without acceleration
+    carousel.scrollLeft += delta;
+    
+    // Calculate velocity for momentum
+    velocity = delta * (16 / timeDelta);
+    
+    lastX = x;
+    lastTime = now;
+  });
 });
 
-carousel.addEventListener("mouseleave", () => {
-  isDown = false;
-  carousel.classList.remove("dragging");
+/* Map Modal functionality */
+document.addEventListener("DOMContentLoaded", () => {
+  const mapToggle = document.querySelector("[data-map-toggle]");
+  const mapClose = document.querySelector("[data-map-close]");
+  const mapModal = document.getElementById("mapModal");
+
+  if (mapToggle && mapModal) {
+    mapToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      mapModal.classList.add("active");
+    });
+  }
+
+  if (mapClose && mapModal) {
+    mapClose.addEventListener("click", () => {
+      mapModal.classList.remove("active");
+    });
+  }
+
+  // Close modal when clicking outside
+  if (mapModal) {
+    mapModal.addEventListener("click", (e) => {
+      if (e.target === mapModal) {
+        mapModal.classList.remove("active");
+      }
+    });
+  }
+
+  // Close modal on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && mapModal?.classList.contains("active")) {
+      mapModal.classList.remove("active");
+    }
+  });
 });
 
-carousel.addEventListener("mouseup", () => {
-  isDown = false;
-  carousel.classList.remove("dragging");
-});
+/* Chart.js initialization for dashboard */
+document.addEventListener("DOMContentLoaded", () => {
+  // Chart colors matching the theme
+  const accentColor = "#1b9fff";
+  const accentColor2 = "#7c3aed";
+  const accentColor3 = "#f472b6";
+  const mutedColor = "#9aa0b5";
+  const textColor = "#f4f6fb";
+  const panelColor = "#0b0d13";
 
-carousel.addEventListener("mousemove", (e) => {
-  if (!isDown) return;
-  const x = e.pageX - carousel.offsetLeft;
-  const walk = (x - startX) * 1.5; 
-  carousel.scrollLeft = scrollLeft - walk;
-});
+  // Watch Hours Chart
+  const watchHoursCtx = document.getElementById("watchHoursChart");
+  if (watchHoursCtx) {
+    new Chart(watchHoursCtx, {
+      type: "line",
+      data: {
+        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        datasets: [
+          {
+            label: "Watch Hours",
+            data: [12, 19, 8, 15, 22, 18, 25],
+            borderColor: accentColor,
+            backgroundColor: `rgba(27, 159, 255, 0.1)`,
+            fill: true,
+            tension: 0.4,
+            pointBackgroundColor: accentColor,
+            pointBorderColor: textColor,
+            pointBorderWidth: 2,
+            pointRadius: 5,
+            pointHoverRadius: 7,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            labels: {
+              color: textColor,
+              font: { size: 12, weight: "600" },
+            },
+          },
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 30,
+            ticks: {
+              color: mutedColor,
+              font: { size: 11 },
+            },
+            grid: {
+              color: "rgba(255, 255, 255, 0.05)",
+              drawBorder: false,
+            },
+          },
+          x: {
+            ticks: {
+              color: mutedColor,
+              font: { size: 11 },
+            },
+            grid: {
+              display: false,
+            },
+          },
+        },
+      },
+    });
+  }
 
-/* mobile */
-// Touch start
-carousel.addEventListener("touchstart", (e) => {
-  isDown = true;
-  startX = e.touches[0].pageX - carousel.offsetLeft;
-  scrollLeft = carousel.scrollLeft;
-});
+  // Views by Category Chart
+  const viewsCategoryCtx = document.getElementById("viewsCategoryChart");
+  if (viewsCategoryCtx) {
+    new Chart(viewsCategoryCtx, {
+      type: "doughnut",
+      data: {
+        labels: ["Movies", "Shows", "Sports", "Kids", "Originals"],
+        datasets: [
+          {
+            data: [35, 25, 18, 12, 10],
+            backgroundColor: [accentColor, accentColor2, accentColor3, mutedColor, "#45a29e"],
+            borderColor: panelColor,
+            borderWidth: 2,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: "right",
+            labels: {
+              color: textColor,
+              font: { size: 12, weight: "600" },
+              padding: 15,
+            },
+          },
+        },
+      },
+    });
+  }
 
-// Touch end
-carousel.addEventListener("touchend", () => {
-  isDown = false;
-});
-
-// Touch move
-carousel.addEventListener("touchmove", (e) => {
-  if (!isDown) return;
-  const x = e.touches[0].pageX - carousel.offsetLeft;
-  const walk = (x - startX) * 1.6;
-  carousel.scrollLeft = scrollLeft - walk;
+  // Monthly vs Yearly Performance Chart
+  const performanceCtx = document.getElementById("performanceChart");
+  if (performanceCtx) {
+    new Chart(performanceCtx, {
+      type: "bar",
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June"],
+        datasets: [
+          {
+            label: "Monthly Views",
+            data: [1200, 1400, 1100, 1600, 1300, 1500],
+            backgroundColor: accentColor,
+            borderRadius: 8,
+            borderSkipped: false,
+          },
+          {
+            label: "Yearly Avg",
+            data: [1350, 1350, 1350, 1350, 1350, 1350],
+            backgroundColor: accentColor2,
+            borderRadius: 8,
+            borderSkipped: false,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            labels: {
+              color: textColor,
+              font: { size: 12, weight: "600" },
+            },
+          },
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 2000,
+            ticks: {
+              color: mutedColor,
+              font: { size: 11 },
+            },
+            grid: {
+              color: "rgba(255, 255, 255, 0.05)",
+              drawBorder: false,
+            },
+          },
+          x: {
+            ticks: {
+              color: mutedColor,
+              font: { size: 11 },
+            },
+            grid: {
+              display: false,
+            },
+          },
+        },
+      },
+    });
+  }
 });
 
 
