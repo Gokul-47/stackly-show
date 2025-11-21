@@ -1309,8 +1309,7 @@ footer {
     width: 100%;
   }
 
-  nav.side-nav:hover .nav-links a .nav-label,
-  nav.side-nav:hover .logo-text {
+  nav.side-nav:hover .nav-links a .nav-label {
     display: none;
   }
 
@@ -1328,7 +1327,12 @@ footer {
   }
 
   .nav-logo .logo-text {
-    display: none;
+    display: inline-block;
+    opacity: 1;
+    transform: none;
+    color: var(--text);
+    margin-left: 0.6rem;
+    font-weight: 600;
   }
 
   .nav-logo img {
@@ -1447,7 +1451,13 @@ footer {
   }
 
   .nav-logo .logo-text {
-    display: none;
+    display: inline-block;
+    opacity: 1;
+    transform: none;
+    color: var(--text);
+    margin-left: 0;
+    font-weight: 600;
+    font-size: small;
   }
 
   .nav-logo img {
