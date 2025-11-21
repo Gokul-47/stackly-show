@@ -590,7 +590,7 @@ nav.side-nav:hover .nav-links a .nav-label {
 
 .input-field input,
 .input-field select {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(5, 5, 8, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 0.85rem;
   padding: 0.85rem 1rem;
@@ -1237,14 +1237,17 @@ footer {
     display: flex;
     flex-direction: column;
   }
+  nav.side-nav .nav-logo {
+    width: 100%;
+    padding: 1rem 0;
+    transition: none !important;
+  }
 
   nav.side-nav .nav-logo .logo-text {
     display: block;
     opacity: 100;
-    
     transition: opacity var(--transition), transform var(--transition);
     text-align: center;
-  
   }
 
   nav.side-nav:hover .nav-logo .logo-text {
@@ -1278,13 +1281,11 @@ footer {
   }
 
   nav.side-nav .nav-logo .logo-text {
-    font-size: 0.5rem;
+    font-size: 0.8rem;
     white-space: nowrap;
-  text-align: center;
+    text-align: center;
     opacity: 100;
     transform: translateY(-5px);
-    
-  
   }
 
   nav.side-nav:hover .nav-logo .logo-text {
