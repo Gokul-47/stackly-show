@@ -1240,7 +1240,11 @@ footer {
 
   nav.side-nav .nav-logo .logo-text {
     display: block;
-    opacity: 0;
+    opacity: 100;
+    
+    transition: opacity var(--transition), transform var(--transition);
+    text-align: center;
+  
   }
 
   nav.side-nav:hover .nav-logo .logo-text {
@@ -1250,10 +1254,42 @@ footer {
   nav.side-nav .nav-links a .nav-label {
     display: block;
     opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity var(--transition), transform var(--transition);
   }
 
   nav.side-nav:hover .nav-links a .nav-label {
     opacity: 1;
+  }
+
+  /* Stack logo and text vertically in the left-side nav (desktop) */
+  nav.side-nav .nav-logo a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0;
+  }
+
+  nav.side-nav .nav-logo img {
+    width: 44px;
+    height: 44px;
+    margin: 0;
+  }
+
+  nav.side-nav .nav-logo .logo-text {
+    font-size: 0.5rem;
+    white-space: nowrap;
+  text-align: center;
+    opacity: 100;
+    transform: translateY(-5px);
+    
+  
+  }
+
+  nav.side-nav:hover .nav-logo .logo-text {
+    opacity: 100;
+    transform: translateY(0);
   }
 
   nav.side-nav .nav-controls,
@@ -1286,6 +1322,7 @@ footer {
     width: calc(100vw - 86px);
     max-width: none;
   }
+  
 }
 
 @media (max-width: 1024px) {
