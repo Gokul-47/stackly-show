@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // If all good → Submit or redirect
     if (isValid) {
       alert("Account created successfully!");
-      window.location.href = "my-spaces.html"; // Redirect to Spaces
+      window.location.href = "404.html"; // Redirect to Spaces
     }
   });
 });
@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- If everything correct ---
     if (isValid) {
       alert("Login successful!");
-      window.location.href = "my-spaces.html";
+      window.location.href = "404.html";
     }
   });
 });
