@@ -252,6 +252,10 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
     // only respond to primary pointer
     if (e.isPrimary === false) return;
 
+    // If user clicked a link or button inside the carousel, don't hijack the pointer —
+    // allow the browser to process the click (so anchors can navigate normally).
+    if (e.target && e.target.closest && (e.target.closest('a') || e.target.closest('button'))) return;
+
     // Skip custom drag for touch pointers — let native scrolling handle them.
     // This prevents glitches on small screens and preserves smooth momentum.
     if (e.pointerType === 'touch') return;

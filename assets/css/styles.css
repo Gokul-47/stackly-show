@@ -1926,110 +1926,151 @@ footer {
   font-size: 1rem;
   color: var(--text);
 }
+/* =========================
+   PREMIUM PLANS SECTION
+========================= */
 
-/* Plans Section */
-.plans-section {
-  margin-bottom: 2.5rem;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
+.premium-plans {
+  padding: 3rem 0;
+  perspective: 1000px;
 }
 
 .plans-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 2rem;
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
+/* CARD BASE */
 .plan-card {
   position: relative;
-  padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius);
-  background: linear-gradient(135deg, rgba(27, 159, 255, 0.05), rgba(124, 58, 237, 0.05));
-  transition: all var(--transition);
+  padding: 2.25rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(27, 159, 255, 0.08),
+    rgba(124, 58, 237, 0.08)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
+  
 }
 
+/* GLOW BORDER */
+.plan-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent, rgba(27,159,255,0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  /* allow clicks to pass through the decorative glow so buttons/links inside the card stay clickable */
+  pointer-events: none;
+}
+
+/* HOVER EFFECT */
 .plan-card:hover {
-  border-color: rgba(27, 159, 255, 0.3);
-  background: linear-gradient(135deg, rgba(27, 159, 255, 0.08), rgba(124, 58, 237, 0.08));
-  box-shadow: 0 10px 30px rgba(27, 159, 255, 0.1);
-  transform: translateY(-4px);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(27, 159, 255, 0.2);
 }
 
+.plan-card:hover::before {
+  opacity: 1;
+}
+
+/* FEATURED */
 .plan-card.featured {
+  background: linear-gradient(
+    135deg,
+    rgba(27, 159, 255, 0.15),
+    rgba(124, 58, 237, 0.15)
+  );
   border-color: var(--accent);
-  background: linear-gradient(135deg, rgba(27, 159, 255, 0.12), rgba(124, 58, 237, 0.1));
-  box-shadow: 0 20px 40px rgba(27, 159, 255, 0.15);
+  box-shadow: 0 25px 60px rgba(27, 159, 255, 0.25);
 }
 
+/* BADGE */
 .plan-badge {
   position: absolute;
-  top: -12px;
+  top: -14px;
   left: 50%;
   transform: translateX(-50%);
   background: var(--accent);
   color: var(--bg);
-  padding: 0.35rem 1rem;
+  padding: 0.4rem 1.2rem;
   border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.plan-card h3 {
-  margin: 0;
-  font-size: 1.5rem;
-  font-family: "Space Grotesk", sans-serif;
-}
-
-.plan-price {
-  margin: 0;
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-}
-
-.plan-price span {
-  font-size: 2rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  color: var(--accent);
+  letter-spacing: 0.08em;
 }
 
-.plan-desc {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--muted);
+/* BADGE PULSE */
+.pulse {
+  animation: pulseGlow 2s infinite;
 }
 
-.plan-features {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  flex-grow: 1;
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 rgba(27,159,255,0.6); }
+  70% { box-shadow: 0 0 25px rgba(27,159,255,0.8); }
+  100% { box-shadow: 0 0 0 rgba(27,159,255,0.6); }
 }
 
+/* PRICE */
+.plan-price span {
+  font-size: 2.4rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--accent), #7c3aed);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* FEATURES */
 .plan-features li {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 0.95rem;
-  color: var(--text);
+  opacity: 0.9;
 }
 
-.plan-features .material-symbols-rounded {
-  font-size: 1.2rem;
-  color: var(--accent);
-  flex-shrink: 0;
+/* ICON BOUNCE */
+.plan-card:hover .material-symbols-rounded {
+  animation: bounce 0.6s ease;
 }
+
+@keyframes bounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+/* ENTRY ANIMATION */
+.animate-card {
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.animate-card:nth-child(1) { animation-delay: 0.1s; }
+.animate-card:nth-child(2) { animation-delay: 0.25s; }
+.animate-card:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 @media (max-width: 768px) {
   .plans-grid {
