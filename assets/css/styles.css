@@ -1940,11 +1940,16 @@ footer {
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: 3rem;
-}
+  /* ensure each grid row stretches so cards can match height */
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+} 
 
 /* CARD BASE */
 .plan-card {
   position: relative;
+  /* fill the grid cell so cards match height */
+  height: 100%;
   padding: 2.25rem;
   border-radius: 1.5rem;
   background: linear-gradient(
@@ -1960,6 +1965,13 @@ footer {
   transition: all 0.4s ease;
   transform-style: preserve-3d;
   
+}
+
+/* Make action buttons in plan cards stick to the bottom */
+.plan-card .btn {
+  margin-top: auto;
+  width: 100%;
+  align-self: stretch;
 }
 
 /* GLOW BORDER */
