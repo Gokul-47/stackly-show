@@ -188,8 +188,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-/* drag for all carousels with smooth momentum (pointer-based) */
-document.querySelectorAll(".carousel").forEach((carousel) => {
+/* drag for all carousels and shelf rails with smooth momentum (pointer-based) */
+// include both .carousel and .shelf-cards so shelf sections gain the exact same drag/momentum behavior
+document.querySelectorAll(".carousel, .shelf-cards").forEach((carousel) => {
   let isDown = false;
   let startX = 0;
   let scrollLeft = 0;
@@ -536,20 +537,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Insert wrapper and buttons
     carousel.parentElement.insertBefore(wrapper, carousel);
-    wrapper.appendChild(prevBtn);
+      wrapper.appendChild(prevBtn);
     wrapper.appendChild(carousel);
+    wrapper.appendChild(nextBtn);
+  });
+
+  // Also add arrow wrappers for shelf sections (search page and other shelf patterns)
+  document.querySelectorAll('.shelf').forEach((section) => {
+    const shelfCards = section.querySelector('.shelf-cards') || section.querySelector('.shelf-cards.scrollable');
+    if (!shelfCards) return;
+
+    // Check if already wrapped
+    if (shelfCards.parentElement.classList.contains('carousel-wrapper')) return;
+
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('carousel-wrapper');
+
+    const prevBtn = document.createElement('button');
+    prevBtn.classList.add('carousel-nav', 'carousel-nav-prev');
+    prevBtn.setAttribute('aria-label', 'Previous');
+    prevBtn.innerHTML = '<span class="material-symbols-rounded">arrow_back</span>';
+
+    const nextBtn = document.createElement('button');
+    nextBtn.classList.add('carousel-nav', 'carousel-nav-next');
+    nextBtn.setAttribute('aria-label', 'Next');
+    nextBtn.innerHTML = '<span class="material-symbols-rounded">arrow_forward</span>';
+
+    shelfCards.parentElement.insertBefore(wrapper, shelfCards);
+    wrapper.appendChild(prevBtn);
+    wrapper.appendChild(shelfCards);
     wrapper.appendChild(nextBtn);
   });
 });
 
-/* Carousel navigation arrow click handler */
+/* Carousel / Shelf navigation arrow click handler */
 document.addEventListener('click', (e) => {
   const btn = e.target.closest('.carousel-nav');
   if (!btn) return;
 
   const isNext = btn.classList.contains('carousel-nav-next');
   const wrapper = btn.closest('.carousel-wrapper');
-  const carousel = wrapper.querySelector('.carousel');
+  // Support both '.carousel' and shelf containers '.shelf-cards' / '.scrollable'
+  const carousel = wrapper.querySelector('.carousel, .shelf-cards, .scrollable');
 
   if (carousel) {
     const cardWidth = carousel.querySelector('.carousel-card')?.offsetWidth || 260;
